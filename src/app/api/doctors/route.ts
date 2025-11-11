@@ -24,3 +24,4 @@ export async function DELETE(request: Request) {
   await prisma.doctor.delete({ where: { id } });
   return NextResponse.json({ message: "Deleted successfully" });
 }
+console.log("DATABASE_URL:", process.env.DATABASE_URL)
