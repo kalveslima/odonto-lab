@@ -7,10 +7,29 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Patient {
+  id           Int           @id @default(autoincrement())
+  name         String
+  phone        String
+  createdAt    DateTime      @default(now())
+  appointments Appointment[]
+}
+
+model Doctor {
+  id           Int           @id @default(autoincrement())
+  name         String
+  specialty    String
+  createdAt    DateTime      @default(now())
+  appointments Appointment[]
+}
+
 model Appointment {
   id        Int      @id @default(autoincrement())
-  patient   String
   start     DateTime
   end       DateTime
+  doctor    Doctor   @relation(fields: [doctorId], references: [id])
+  doctorId  Int
+  patient   Patient  @relation(fields: [patientId], references: [id])
+  patientId Int
   createdAt DateTime @default(now())
 }
