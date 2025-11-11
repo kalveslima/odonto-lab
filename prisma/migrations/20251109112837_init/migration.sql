@@ -1,8 +1,0 @@
--- CreateTable
-CREATE TABLE "Appointment" (
-    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    "patient" TEXT NOT NULL,
-    "start" DATETIME NOT NULL,
-    "end" DATETIME NOT NULL,
-    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
-);
