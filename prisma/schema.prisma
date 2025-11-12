@@ -33,3 +33,4 @@ model Appointment {
   patientId Int
   createdAt DateTime @default(now())
 }
+
